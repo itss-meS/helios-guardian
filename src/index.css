@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass { @apply bg-white/5 backdrop-blur-md border border-white/10; }
+  .text-glow { text-shadow: 0 0 8px theme('colors.cyan.400'), 0 0 16px theme('colors.cyan.400/50'); }
+  .btn-primary { @apply px-4 py-2 bg-cyan-600/80 hover:bg-cyan-500 text-white font-mono text-sm rounded transition-all duration-200 border border-cyan-400/30 hover:border-cyan-400 active:scale-95; }
+  .btn-danger { @apply px-4 py-2 bg-red-600/80 hover:bg-red-500 text-white font-mono text-sm rounded transition-all duration-200 border border-red-400/30 hover:border-red-400; }
+  .scrollbar-thin { scrollbar-width: thin; scrollbar-color: #22d3ee33 transparent; }
+}
