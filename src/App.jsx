@@ -56,7 +56,7 @@ export function App() {
       <SidePanel />
       
       {/* Global Styles for Animations */}
-      <style jsx global>{`
+      <style>{`
         @keyframes slide-in { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
         .animate-slide-in { animation: slide-in 0.3s ease-out; }
         @keyframes pulse-subtle { 0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); } 50% { box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2); } }

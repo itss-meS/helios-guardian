@@ -86,19 +86,19 @@ export function SolarFarm({ viewMode }) {
 
   // Raycasting Support (Drei handles this via onPointerOver on mesh)
   return (
-    <InstancedMesh
+    <instancedMesh
       ref={meshRef}
       args={[geometry, material, count]}
       frustumCulled={true}
       receiveShadow
       castShadow
-      onPointerOver={e => { 
-        const id = e.instanceId; 
-        if(id !== undefined) useStore.getState().selectPanel(id); 
+      onPointerOver={e => {
+        const id = e.instanceId;
+        if(id !== undefined) useStore.getState().selectPanel(id);
       }}
-      onClick={e => { 
-        const id = e.instanceId; 
-        if(id !== undefined) useStore.getState().selectPanel(id); 
+      onClick={e => {
+        const id = e.instanceId;
+        if(id !== undefined) useStore.getState().selectPanel(id);
       }}
     />
   );

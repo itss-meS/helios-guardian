@@ -99,5 +99,5 @@ export function Drone() {
     }
   });
 
-  return <Group ref={groupRef} position={position} />;
+  return <group ref={groupRef} position={position} />;
 }

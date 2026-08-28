@@ -1,6 +1,6 @@
 import { useFrame } from '@react-three/fiber';
-import { useMemo } from 'react';
-import { Mesh, RingGeometry, ShaderMaterial, AdditiveBlending, Vector2 } from 'three';
+import { useMemo, useRef } from 'react';
+import { Color, RingGeometry, ShaderMaterial, AdditiveBlending } from 'three';
 import { useStore } from '../../stores/useStore';
 
 export function ScanPulse() {
@@ -10,7 +10,7 @@ export function ScanPulse() {
 
   const material = useMemo(() => new ShaderMaterial({
     transparent: true, depthWrite: false, blending: AdditiveBlending,
-    uniforms: { uTime: { value: 0 }, uColor: { value: new THREE.Color(0x00ffff) }, uRadius: { value: 1 } },
+    uniforms: { uTime: { value: 0 }, uColor: { value: new Color(0x00ffff) }, uRadius: { value: 1 } },
     vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
     fragmentShader: `
       uniform float uTime; uniform vec3 uColor; varying vec2 vUv;
@@ -35,12 +35,12 @@ export function ScanPulse() {
   });
 
   return (
-    <Mesh 
-      ref={pulseRef} 
-      geometry={new RingGeometry(50, 250, 64)} 
-      material={material} 
-      rotation={[-Math.PI/2, 0, 0]} 
-      position={[0, 0.2, 0]} 
+    <mesh
+      ref={pulseRef}
+      geometry={new RingGeometry(50, 250, 64)}
+      material={material}
+      rotation={[-Math.PI/2, 0, 0]}
+      position={[0, 0.2, 0]}
       scale={0.5}
     />
   );
